@@ -1,5 +1,4 @@
-package Section20.Stream.Problems;
-
+package ProblemStream.src;
 public class Employee {
     private String name;
     private String email;

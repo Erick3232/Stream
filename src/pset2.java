@@ -1,5 +1,4 @@
-package Section20.Stream.Problems;
-
+package ProblemStream.src;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -39,8 +38,30 @@ public class pset2 {
                 .filter(x -> x.getName().charAt(0) == 'M')
                 .map(x -> x.getSalary())
                 .reduce(0.0, (x,y) -> x + y);
+            System.out.println();
         System.out.println("Sum of salary from people whose name starts with 'M': " + String.format("%.2f", sum));
 
+        List<Double> names = list.stream()
+                .filter(x -> x.getName().charAt(0) == 'A')
+                .map(x -> x.getSalary())
+                .sorted()
+                .collect(Collectors.toList());
+
+        System.out.println();
+        System.out.println("Emails of people name started with 'A': ");        
+        names.forEach(System.out::println);
+
+        System.out.print("Insert your salary: ");
+        double founds = scanner.nextDouble();
+
+        List<String> total = list.stream()
+                .filter(x -> x.getSalary() > founds)
+                .map(x -> x.getName())
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println();
+        System.out.println("Name of people: ");
+        total.forEach(System.out::println);
     }catch (IOException e) {
         System.out.println("Error: " + e.getMessage());
         }
